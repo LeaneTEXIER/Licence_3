@@ -1,0 +1,65 @@
+#TEXIER Léane 
+#Exercice 1:
+
+1) Expression rationnelle:	[A-Z][a-zA-Z]*
+   Mots du langage:	Jeudi; AEL; CoursEtTD
+   Mots n'appartenant pas au langage: samedi; Léane; Fevrier1
+
+
+2) Expression rationnelle:	\+33[1-9][0-9]{8}
+   Mots du langage:	+33145786523; +33512453278; +33945783216
+   Mots n'appartenant pas au langage: 	+33045783216; +3341275464; 33278945697
+
+
+3) Expression rationnelle:	[02][1-9]|1[0-9]|[3-8][0-9]|9[0-5]|97[1-6]|2[AB]
+   Mots du langage: 09; 971; 2B
+   Mots n'appartenant pas au langage: 20; 00; 97
+
+
+4) Expression rationnelle: ([a-zA-Z](([a-zA-Z1-9]*_?[a-zA-Z1-9]+))*)
+   Mots du langage: c; test_g_125; bonjour123A
+   Mots n'appartenant pas au langage: _testDebut; test__2; testfin_
+
+
+5) Expression rationnelle: (0[0-7]*|0x[0-9a-fA-F]+|[1-9][0-9]*)(_(0[0-7]*|0x[0-9a-fA-F]+|[1-9][0-9]*))*
+   Mots du langage: 15_31; 0x554Af; 0123
+   Mots n'appartenant pas au langage: 08; 0xg; 0__58   
+   
+6) Expression rationnelle:  *([a-zA-Z]([a-zA-Z1-9]*_?[a-zA-Z1-9]+)*)(( )*,( )*([a-zA-Z]([a-zA-Z1-9]*_?[a-zA-Z1-9]+)*))* *
+   Mots du langage: test,ael;    hello954, g; World  , a11
+   Mots n'appartenant pas au langage: 12; hello,; 45é45
+
+
+7) Expression rationnelle:  "[^"]*"
+   Mots du langage: "bonjour"; "Coucou ça va?"; "Test-354"
+   Mots n'appartenant pas au langage: "Test"54"; "Test""54"
+
+
+8) Expression rationnelle: ("[^"]*")*
+   Mots du langage: "How Are You?"; "T""e""s""t"; "F"""
+   Mots n'appartenant pas au langage: "a"b"; "a" "b"; """
+
+
+9) Expression rationnelle: ("(([^"\\])*(\\")*(\\\\)*([^"\\])*)*")*
+   Mots du langage: "a\\b\"c"; """"; "\\test""\"h"
+   Mots n'appartenant pas au langage: "d"g"; "f\v"; "\\\"
+
+
+10) Expression rationnelle: [a-zA-Z:_][a-zA-Z:_0-9.-]*
+    Mots du langage: test; :fev; _abc
+    Mots n'appartenant pas au langage: 10; ..t; -meteo-
+
+
+11) Expression rationnelle: &[a-zA-Z:_][a-zA-Z:_0-9.-]*;
+    Mots du langage: &test;; &:fev;; &_abc;
+    Mots n'appartenant pas au langage:  _abc; &zebre; tete; 
+
+
+12) Expression rationnelle: "([^<"&]*(&[a-zA-Z:_][a-zA-Z:_0-9.-]*;)*)*"
+    Mots du langage: "test&a1;"; "&gy;&re;"; "&abc;def&ghi;"
+    Mots n'appartenant pas au langage: """; "&..t;"; "&t"
+
+
+13) Expression rationnelle: <[a-zA-Z:_][a-zA-Z:_0-9.-]*( [a-zA-Z:_][a-zA-Z:_0-9.-]* *= *"([^<"&]*(&[a-zA-Z:_][a-zA-Z:_0-9.-]*;)*)*")* *>
+    Mots du langage: <button type ="button" name= "changer">; <test att="&t;" >; <lundi>
+    Mots n'appartenant pas au langage: mardi>; <bon  t="r">; <abc def=ghi>

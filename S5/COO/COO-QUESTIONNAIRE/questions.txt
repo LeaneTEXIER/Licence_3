@@ -1,0 +1,24 @@
+Un kilo de plomb est plus lourd qu'un kilo de plumes?
+faux
+3
+BooleanAnswer
+Lors d'une course je dépasse le deuxième, quelle est alors ma position dans la course?
+Deuxième | Premier | Troisième | Dernier 
+2
+MultipleChoicesAnswer
+Mon frère a 7 ans de moins que moi. Quel age aurais-je quand il aura 18 ans?
+25
+1
+IntegerAnswer
+Quel chanteur a interprété "Thriller" et "Beat it"?
+Michael Jackson
+3
+TextAnswer
+Donnez le nom d'un mois de l'année?
+Janvier; Février; Mars; Avril; Mai; Juin; Juillet; Août; Septembre; Octobre; Novembre; Décembre
+1
+MultipleAnswer
+Il y a 4 saisons dans l'année?
+vrai
+4
+BooleanAnswer

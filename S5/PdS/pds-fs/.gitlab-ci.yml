@@ -1,0 +1,72 @@
+stages:
+  - access:compile
+  - access:run
+  - du:compile
+  - mcat:compile
+  - mcat:run
+  - mtail:compile
+  - mtail:run
+  
+access:compile:
+  stage: access:compile
+  script: cd access && make maccess
+  artifacts:
+    paths:
+    - access/maccess
+    
+access:test:1:
+  stage: access:run
+  script: cd access && ./maccess -r maccess.c 
+  dependencies:
+  - access:compile
+  allow_failure: true
+
+access:test:2:
+  stage: access:run
+  script: cd access && ! ./maccess -x maccess.c 
+  dependencies:
+  - access:compile
+  allow_failure: true
+
+du:compile:
+  stage: du:compile
+  script: cd du && make mdu
+  artifacts:
+    paths:
+    - du/mdu
+
+mcat:compile:
+  stage: mcat:compile
+  script: cd performances && make mcat-scd
+  artifacts:
+    paths:
+    - performances/mcat-scd
+
+mcat:test:1:
+  stage: mcat:run
+  script: export MCAT_BUFSIZ=1024 && cd performances && ./mcat-scd mcat-scd.c > tmp && diff tmp mcat-scd.c
+  dependencies:
+  - mcat:compile
+  allow_failure: true
+
+mtail:compile:
+  stage: mtail:compile
+  script: cd tail && make mtail
+  artifacts:
+    paths:
+    - tail/mtail
+
+mtail:test:1:
+  stage: mtail:run
+  script: cd tail && ./mtail -n 5 mtail.c > tmp1 && tail -n 5 mtail.c > tmp2 && diff tmp1 tmp2
+  dependencies:
+  - mtail:compile
+  allow_failure: true
+
+mtail:test:2:
+  stage: mtail:run
+  script: cd tail && ./mtail -n 500 mtail.c > tmp1 && tail -n 500 mtail.c > tmp2 && diff tmp1 tmp2
+  dependencies:
+  - mtail:compile
+  allow_failure: true
+

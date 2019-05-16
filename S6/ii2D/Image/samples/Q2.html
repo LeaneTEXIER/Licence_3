@@ -1,0 +1,24 @@
+<html>
+<head>
+<script lang="js" src="../tools.js"></script>
+<script lang="js" src="../features/pixels.js"></script>
+<script lang="js" src="../processing.js"></script>
+</head>
+<body>
+  <img src="../data/tambour.png" id="input" height="240" width="240"></img>
+  <div id="output"></div>
+  <script lang="javascript">
+    var _output=document.getElementById("output");
+    var _opt_options={x:100,y:100,output:_output};
+    var _task=new GetMouseRGBAPixelTask(_opt_options);
+    var _proc=new processing("input",_task);
+    var _img = document.getElementById("input");
+    _img.addEventListener("click", function(event){
+      var x = event.clientX-event.target.getBoundingClientRect().left;
+      var y = event.clientY-event.target.getBoundingClientRect().top;
+      _task.set_position(x,y);
+      _proc.do_process();
+    });
+  </script>
+</body>
+</html>

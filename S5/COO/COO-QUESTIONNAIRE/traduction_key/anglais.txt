@@ -1,0 +1,5 @@
+NUMERICAL_KEY:(numerical)
+SYMBOLIC_KEY:(symbolic)
+BOOLEAN_KEY:(yes/no)
+MULTIPLE_KEY: possible answers)
+MULTIPLECHOICES_KEY:

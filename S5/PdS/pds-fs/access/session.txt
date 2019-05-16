@@ -1,0 +1,45 @@
+lamine@lam:~/Bureau/pds-fs/access$ ls
+maccess  maccess.c  maccess.o  Makefile  README.md  session.txt  test.sh
+lamine@lam:~/Bureau/pds-fs/access$ ./maccess  -wv timoleon
+Erreur: No such file or directory
+
+
+lamine@lam:~/Bureau/pds-fs/access$ tree
+.
+├── maccess
+├── maccess.c
+├── maccess.o
+├── Makefile
+├── README.md
+├── session.txt
+└── test.sh
+
+0 directories, 7 files
+lamine@lam:~/Bureau/pds-fs/access$ ./maccess -vw ./Makefile/blabla
+Erreur: Not a directory
+
+
+
+lamine@lam:~/Bureau/pds-fs/access$ mkdir interdit
+lamine@lam:~/Bureau/pds-fs/access$ touch interdit/timoleon
+lamine@lam:~/Bureau/pds-fs/access$ chmod -xwr interdit/
+lamine@lam:~/Bureau/pds-fs/access$ ls -l
+total 40
+d--------- 2 lamine lamine  4096 sept. 22 09:34 interdit
+-rwxrwxr-x 1 lamine lamine 10920 sept. 22 09:29 maccess
+-rw-rw-r-- 1 lamine lamine  1368 sept. 22 09:29 maccess.c
+-rw-rw-r-- 1 lamine lamine  6240 sept. 22 09:29 maccess.o
+-rw-rw-r-- 1 lamine lamine   469 sept. 22 09:21 Makefile
+-rw-rw-r-- 1 lamine lamine    92 sept. 22 09:25 README.md
+-rw-rw-r-- 1 lamine lamine     0 sept. 22 09:31 session.txt
+-rwxrwxr-x 1 lamine lamine  1201 sept. 22 09:21 test.sh
+lamine@lam:~/Bureau/pds-fs/access$ ./maccess -wvxr ./interdit/timoleon
+Erreur: Permission denied
+
+
+
+lamine@lam:~/Bureau/pds-fs/access$ ./maccess -wv qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsssssssssdqqqqqqqqqqqqqqqqqqq
+Erreur: File name too long
+lamine@lam:~/Bureau/pds-fs/access$ exit
+exit
+Script terminé, le fichier est session.txt

@@ -1,0 +1,32 @@
+<html>
+<head>
+<script lang="js" src="../tools.js"></script>
+<script lang="js" src="../filters/moyenne_filters.js"></script>
+<script lang="js" src="../processing.js"></script>
+</head>
+<body>
+  <img src="../data/tambour.png" id="input" height="240" width="240"></img>
+  <canvas id="output" height="240" width="240"></canvas>
+  <canvas id="output2" height="240" width="240"></canvas>
+
+  <script lang="javascript">
+    var _opt_options={size:5};
+    var _task=new ToMoyenneTask(_opt_options);
+    var _proc=new processing("input",_task,"output");
+    var loop=function() {
+      _proc.do_process();
+      requestAnimationFrame(loop);
+    }
+    loop();
+    //Partial
+    var _opt_options2={size:9, reg_x:50, reg_y:120, reg_w:100, reg_h:80};
+    var _task2=new PartialMoyenneTask(_opt_options2);
+    var _proc2=new processing("input",_task2,"output2");
+    var loop2=function() {
+      _proc2.do_process();
+      requestAnimationFrame(loop2);
+    }
+    loop2();
+  </script>
+</body>
+</html>

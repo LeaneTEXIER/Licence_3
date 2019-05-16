@@ -1,0 +1,24 @@
+<html>
+<head>
+  <script lang="js" src="../tools.js"></script>
+  <script lang="js" src="../features/generic.js"></script>
+  <script lang="js" src="../features/pixels_hist_gray.js"></script>
+  <script lang="js" src="../metrics/generic.js"></script>
+  <script lang="js" src="../metrics/pixels_hist_gray.js"></script>
+  <script lang="js" src="../dataset/images.js"></script>
+  <script lang="js" src="../similarity/generic.js"></script>
+  <script lang="js" src="../similarity/pixels_hist_gray.js"></script>
+  <script lang="js" src="../lookup/windows_hist_gray.js"></script>
+</head>
+<body>
+<img width="84" height="84" id='input1' src='../data/I1.png'></img>
+<img width="32" height="32" id='model' src='../data/red.png'></img>
+<div id="res"></div>
+<script lang="javascript">
+var task=[];
+
+_task=new lookup_windows.MeanHistGraySameSizeTemplate('model',450);
+console.log(_task.process(Tools.get_imageData_from_imgEltId('input1')));
+
+</script>
+</body></html>

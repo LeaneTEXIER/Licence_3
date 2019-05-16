@@ -1,0 +1,96 @@
+<html>
+<head>
+<script lang="js" src="../tools.js"></script>
+<script lang="js" src="../filters/min_filters.js"></script>
+<script lang="js" src="../filters/gray_max_filters.js"></script>
+<script lang="js" src="../filters/gray_min_filters.js"></script>
+<script lang="js" src="../filters/gray_moyenne_filters.js"></script>
+<script lang="js" src="../processing.js"></script>
+</head>
+<body>
+  <img src="../data/tambour.png" id="input" height="240" width="240"></img>
+  <canvas id="output" height="240" width="240"></canvas>
+  <canvas id="output2" height="240" width="240"></canvas>
+  <canvas id="output3" height="240" width="240"></canvas>
+  <canvas id="output4" height="240" width="240"></canvas>
+  <canvas id="output5" height="240" width="240"></canvas>
+  <canvas id="output6" height="240" width="240"></canvas>
+  <canvas id="output7" height="240" width="240"></canvas>
+  <canvas id="output8" height="240" width="240"></canvas>
+
+  <script lang="javascript">
+    // min
+    var _opt_options={size:5};
+    var _task=new ToMinTask(_opt_options);
+    var _proc=new processing("input",_task,"output");
+    var loop=function() {
+      _proc.do_process();
+      requestAnimationFrame(loop);
+    }
+    loop();
+    //Partial min
+    var _opt_options2={size:9, reg_x:50, reg_y:120, reg_w:100, reg_h:80};
+    var _task2=new PartialMinTask(_opt_options2);
+    var _proc2=new processing("input",_task2,"output2");
+    var loop2=function() {
+      _proc2.do_process();
+      requestAnimationFrame(loop2);
+    }
+    loop2();
+    //gray max
+    var _opt_options3={size:5};
+    var _task3=new ToGrayMaxTask(_opt_options3);
+    var _proc3=new processing("input",_task3,"output3");
+    var loop3=function() {
+      _proc3.do_process();
+      requestAnimationFrame(loop3);
+    }
+    loop3();
+    //Partial max
+    var _opt_options4={size:9, reg_x:50, reg_y:120, reg_w:100, reg_h:80};
+    var _task4=new PartialGrayMaxTask(_opt_options4);
+    var _proc4=new processing("input",_task4,"output4");
+    var loop4=function() {
+      _proc4.do_process();
+      requestAnimationFrame(loop4);
+    }
+    loop4();
+    //gray min
+    var _opt_options5={size:5};
+    var _task5=new ToGrayMinTask(_opt_options5);
+    var _proc5=new processing("input",_task5,"output5");
+    var loop5=function() {
+      _proc5.do_process();
+      requestAnimationFrame(loop5);
+    }
+    loop5();
+    //Partial min
+    var _opt_options6={size:9, reg_x:50, reg_y:120, reg_w:100, reg_h:80};
+    var _task6=new PartialGrayMinTask(_opt_options6);
+    var _proc6=new processing("input",_task6,"output6");
+    var loop6=function() {
+      _proc6.do_process();
+      requestAnimationFrame(loop6);
+    }
+    loop6();
+    //gray moyenne
+    var _opt_options7={size:5};
+    var _task7=new ToGrayMoyenneTask(_opt_options7);
+    var _proc7=new processing("input",_task7,"output7");
+    var loop7=function() {
+      _proc7.do_process();
+      requestAnimationFrame(loop7);
+    }
+    loop7();
+    //Partial moyenne
+    var _opt_options8={size:9, reg_x:50, reg_y:120, reg_w:100, reg_h:80};
+    var _task8=new PartialGrayMoyenneTask(_opt_options8);
+    var _proc8=new processing("input",_task8,"output8");
+    var loop8=function() {
+      _proc8.do_process();
+      requestAnimationFrame(loop8);
+    }
+    loop8();
+  </script>
+</body>
+</html>

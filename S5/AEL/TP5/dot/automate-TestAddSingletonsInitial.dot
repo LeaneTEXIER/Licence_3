@@ -1,0 +1,4 @@
+digraph Automaton { 
+  rankdir = LR
+}
+
